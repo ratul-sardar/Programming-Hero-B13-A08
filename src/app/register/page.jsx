@@ -16,10 +16,12 @@ import { Bounce, toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
 import { IoMdEyeOff } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
+
+  const router = useRouter();
 
   const onSubmit = async (e) => {
     setIsLoading(true);
@@ -33,7 +35,6 @@ export default function Register() {
       email: form.email, // required
       image: form.ImgeUrl,
       password: form.password, // required
-      callbackURL: "/",
     });
 
     setIsLoading(false);
@@ -64,6 +65,7 @@ export default function Register() {
         theme: "light",
         transition: Bounce,
       });
+      router.push("/");
     }
     //
   };
@@ -115,7 +117,7 @@ export default function Register() {
                 isRequired
                 minLength={8}
                 name="password"
-                type={`${showPassword ? "text" : "password"}`}
+                type={`password`}
                 validate={(value) => {
                   if (value.length < 8) {
                     return "Password must be at least 8 characters";
@@ -130,15 +132,7 @@ export default function Register() {
                 }}
               >
                 <Label>Password</Label>
-                <span className="flex gap-2 items-center">
-                  <Input placeholder="Enter your password" />
-                  <button
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="cursor-pointer"
-                  >
-                    {showPassword ? <IoMdEyeOff /> : <FaEye />}
-                  </button>
-                </span>
+                <Input placeholder="Enter your password" />
                 <Description>
                   Must be at least 8 characters with 1 uppercase and 1 number
                 </Description>

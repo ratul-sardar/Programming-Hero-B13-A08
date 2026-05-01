@@ -19,7 +19,6 @@ import { IoMdEyeOff } from "react-icons/io";
 
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (e) => {
     setIsLoading(true);
@@ -102,15 +101,7 @@ export default function Login() {
                 type="password"
               >
                 <Label>Password</Label>
-                <span className="flex gap-2 items-center">
-                  <Input placeholder="Enter your password" />
-                  <button
-                    onClick={() => setShowPassword(!showPassword)}
-                    className="cursor-pointer"
-                  >
-                    {showPassword ? <IoMdEyeOff /> : <FaEye />}
-                  </button>
-                </span>
+                <Input placeholder="Enter your password" />
                 <Description></Description>
                 <FieldError />
               </TextField>
