@@ -9,31 +9,59 @@ import {
   Input,
   Label,
   TextField,
+  Spinner,
 } from "@heroui/react";
 import { authClient } from "../lib/auth-client";
+import { Bounce, toast } from "react-toastify";
+import { useState } from "react";
 
 export default function Register() {
+  const [isLoading, setIsLoading] = useState(false);
+
   const onSubmit = async (e) => {
+    setIsLoading(true);
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = {};
-    // Convert FormData to plain object
-    formData.forEach((value, key) => {
-      data[key] = value.toString();
-    });
 
     const form = Object.fromEntries(formData);
-
-    console.log(form);
-    // alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
 
     const { data: session, error } = await authClient.signUp.email({
       name: form.name, // required
       email: form.email, // required
+      image: form.ImgeUrl,
       password: form.password, // required
       callbackURL: "/",
     });
-    console.log(error);
+
+    setIsLoading(false);
+
+    if (error) {
+      console.log(error);
+      // Toast message using React Toastify
+      toast.error(error.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    } else {
+      toast.success("Sign Up successfull", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        transition: Bounce,
+      });
+    }
     //
   };
 
@@ -66,11 +94,11 @@ export default function Register() {
         </TextField>
 
         {/* Image Url Feild*/}
-        {/* <TextField name="ImgeUrl" type="text">
+        <TextField name="ImgeUrl" type="text">
           <Label>Your Profile Image Url</Label>
           <Input placeholder="Your Profile Image Url" />
           <FieldError />
-        </TextField>*/}
+        </TextField>
 
         {/* Password Feild*/}
         <TextField
@@ -102,7 +130,7 @@ export default function Register() {
         {/* Submit Button*/}
         <div className="flex gap-2">
           <Button type="submit">
-            <FaCheck />
+            {isLoading ? <Spinner color="current"></Spinner> : <FaCheck />}
             Submit
           </Button>
           <Button type="reset" variant="secondary">
