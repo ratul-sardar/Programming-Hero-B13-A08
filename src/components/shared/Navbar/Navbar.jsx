@@ -35,7 +35,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile HamburgerMenu*/}
-        <span onClick={handleMobileNav} className="md:hidden text-lg">
+        <span onClick={handleMobileNav} className="md:hidden text-2xl">
           {isNavOpen ? <IoMdClose /> : <CiMenuFries></CiMenuFries>}
         </span>
 

@@ -52,12 +52,48 @@
     /* Font Family */
     /* Make sure to load Inter font in your app */
     --font-sans: var(--font-poppins);
+
+    /* Headings */
+    --fs-h1: clamp(2rem, 1.5rem + 2vw, 2.5rem); /* ~32px → 40px */
+    --fs-h2: clamp(1.75rem, 1.3rem + 1.5vw, 2rem); /* ~28px → 32px */
+    --fs-h3: clamp(1.5rem, 1.2rem + 1vw, 1.75rem); /* ~24px → 28px */
+
+    /* Body */
+    --fs-body: clamp(1rem, 0.95rem + 0.3vw, 1.125rem); /* ~16px → 18px */
+    --fs-small: clamp(0.875rem, 0.85rem + 0.2vw, 0.95rem); /* ~14px → 15px */
+
+    /* Extra (Optional but useful) */
+    --fs-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.875rem); /* ~12px → 14px */
+    --fs-xl: clamp(2.25rem, 1.8rem + 2.5vw, 3rem); /* ~36px → 48px */
 }
 
 p,
 a,
 button {
     font-family: var(--font-inter);
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    font-weight: 700;
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    font-weight: 500;
+}
+
+p {
+    font-size: var(--fs-body);
+}
+
+.small-text {
+    font-size: var(--fs-small);
 }
 
 @layer components {

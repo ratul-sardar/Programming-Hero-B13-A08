@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
         className="relative bg-background min-h-full flex flex-col"
       >
         {/* Header area*/}
-        <header className="sticky top-0">
+        <header className="sticky top-0 z-50">
           <Navbar></Navbar>
         </header>
 

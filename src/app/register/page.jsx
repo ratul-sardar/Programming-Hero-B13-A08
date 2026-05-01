@@ -14,6 +14,7 @@ import {
 import { authClient } from "../lib/auth-client";
 import { Bounce, toast } from "react-toastify";
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
@@ -50,7 +51,7 @@ export default function Register() {
         transition: Bounce,
       });
     } else {
-      toast.success("Sign Up successfull", {
+      toast.success("Registration successfull", {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
@@ -67,77 +68,101 @@ export default function Register() {
 
   return (
     <>
-      <h1 className="">Hi, from Register</h1>
-      <Form className="flex w-96 flex-col gap-4" onSubmit={onSubmit}>
-        {/* Name Feild*/}
-        <TextField isRequired name="name" type="text">
-          <Label>Your name</Label>
-          <Input placeholder="Your name" />
-          <FieldError />
-        </TextField>
+      <section className="">
+        <div className="cssContainer md:flex-row">
+          {/* Left Panel*/}
+          <div>
+            <h1 className="text-center mb-10">Register</h1>
+            <Form
+              className="flex w-full max-w-96 flex-col gap-4"
+              onSubmit={onSubmit}
+            >
+              {/* Name Feild*/}
+              <TextField isRequired name="name" type="text">
+                <Label>Your name</Label>
+                <Input placeholder="Your name" />
+                <FieldError />
+              </TextField>
 
-        {/* Email Feild*/}
-        <TextField
-          isRequired
-          name="email"
-          type="email"
-          validate={(value) => {
-            if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
-              return "Please enter a valid email address";
-            }
-            return null;
-          }}
-        >
-          <Label>Email</Label>
-          <Input placeholder="john@example.com" />
-          <FieldError />
-        </TextField>
+              {/* Email Feild*/}
+              <TextField
+                isRequired
+                name="email"
+                type="email"
+                validate={(value) => {
+                  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+                    return "Please enter a valid email address";
+                  }
+                  return null;
+                }}
+              >
+                <Label>Email</Label>
+                <Input placeholder="john@example.com" />
+                <FieldError />
+              </TextField>
 
-        {/* Image Url Feild*/}
-        <TextField name="ImgeUrl" type="text">
-          <Label>Your Profile Image Url</Label>
-          <Input placeholder="Your Profile Image Url" />
-          <FieldError />
-        </TextField>
+              {/* Image Url Feild*/}
+              <TextField name="ImgeUrl" type="text">
+                <Label>Your Profile Image Url</Label>
+                <Input placeholder="Your Profile Image Url" />
+                <FieldError />
+              </TextField>
 
-        {/* Password Feild*/}
-        <TextField
-          isRequired
-          minLength={8}
-          name="password"
-          type="password"
-          validate={(value) => {
-            if (value.length < 8) {
-              return "Password must be at least 8 characters";
-            }
-            if (!/[A-Z]/.test(value)) {
-              return "Password must contain at least one uppercase letter";
-            }
-            if (!/[0-9]/.test(value)) {
-              return "Password must contain at least one number";
-            }
-            return null;
-          }}
-        >
-          <Label>Password</Label>
-          <Input placeholder="Enter your password" />
-          <Description>
-            Must be at least 8 characters with 1 uppercase and 1 number
-          </Description>
-          <FieldError />
-        </TextField>
+              {/* Password Feild*/}
+              <TextField
+                isRequired
+                minLength={8}
+                name="password"
+                type="password"
+                validate={(value) => {
+                  if (value.length < 8) {
+                    return "Password must be at least 8 characters";
+                  }
+                  if (!/[A-Z]/.test(value)) {
+                    return "Password must contain at least one uppercase letter";
+                  }
+                  if (!/[0-9]/.test(value)) {
+                    return "Password must contain at least one number";
+                  }
+                  return null;
+                }}
+              >
+                <Label>Password</Label>
+                <Input placeholder="Enter your password" />
+                <Description>
+                  Must be at least 8 characters with 1 uppercase and 1 number
+                </Description>
+                <FieldError />
+              </TextField>
 
-        {/* Submit Button*/}
-        <div className="flex gap-2">
-          <Button type="submit">
-            {isLoading ? <Spinner color="current"></Spinner> : <FaCheck />}
-            Submit
-          </Button>
-          <Button type="reset" variant="secondary">
-            Reset
-          </Button>
+              {/* Submit Button*/}
+              <div className="flex gap-2">
+                <Button type="submit">
+                  {isLoading ? (
+                    <Spinner color="current"></Spinner>
+                  ) : (
+                    <FaCheck />
+                  )}
+                  Submit
+                </Button>
+                <Button type="reset" variant="secondary">
+                  Reset
+                </Button>
+              </div>
+            </Form>
+          </div>
+
+          {/* Right Panel*/}
+          <div>
+            <Image
+              src={"Farm.svg"}
+              alt="Image of a Firm"
+              width={450}
+              height={450}
+            ></Image>
+          </div>
         </div>
-      </Form>
+      </section>
     </>
   );
 }
