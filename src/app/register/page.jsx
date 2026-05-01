@@ -1,6 +1,6 @@
 "use client";
 
-import { FaCheck, FaEye } from "react-icons/fa";
+import { FaCheck, FaEye, FaGoogle } from "react-icons/fa";
 import {
   Button,
   Description,
@@ -23,6 +23,18 @@ export default function Register() {
 
   const router = useRouter();
 
+  // Google login function
+  const googleSignIn = async () => {
+    setIsLoading(true);
+
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+    setIsLoading(false);
+  };
+
+  // On submit Function
   const onSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
@@ -154,6 +166,15 @@ export default function Register() {
                 </Button>
               </div>
             </Form>
+            <p className="text-center mt-5">Or</p>
+            <Button
+              onClick={googleSignIn}
+              variant="outline"
+              className={"border-2 border-blue-500 text-blue-500 w-full mt-4 "}
+            >
+              {isLoading ? <Spinner color="current"></Spinner> : <FaGoogle />}
+              Register with Google
+            </Button>
           </div>
 
           {/* Right Panel*/}

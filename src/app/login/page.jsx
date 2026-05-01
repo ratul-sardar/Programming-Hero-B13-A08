@@ -1,6 +1,6 @@
 "use client";
 
-import { FaCheck, FaEye } from "react-icons/fa";
+import { FaCheck, FaEye, FaGoogle } from "react-icons/fa";
 import {
   Button,
   Description,
@@ -18,8 +18,21 @@ import Image from "next/image";
 import { IoMdEyeOff } from "react-icons/io";
 
 export default function Login() {
+  // To check if the its in loading state
   const [isLoading, setIsLoading] = useState(false);
 
+  // Google login function
+  const googleSignIn = async () => {
+    setIsLoading(true);
+
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+    setIsLoading(false);
+  };
+
+  // On Submit Function
   const onSubmit = async (e) => {
     setIsLoading(true);
     e.preventDefault();
@@ -121,6 +134,15 @@ export default function Login() {
                 </Button>
               </div>
             </Form>
+            <p className="text-center mt-5">Or</p>
+            <Button
+              onClick={googleSignIn}
+              variant="outline"
+              className={"border-2 border-blue-500 text-blue-500 w-full mt-4 "}
+            >
+              {isLoading ? <Spinner color="current"></Spinner> : <FaGoogle />}
+              Login with Google
+            </Button>
           </div>
 
           {/* Right Panel*/}
