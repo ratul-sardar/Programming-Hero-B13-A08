@@ -57,12 +57,13 @@ export default function Navbar() {
 function Cta() {
   return (
     <div className={`flex gap-4 items-center `}>
-      <Link href={"/login"}>
-        <Button variant="outline">Login</Button>
-      </Link>
-      <Link href={"/register"}>
-        <Button variant="primary">Register</Button>
-      </Link>
+      <Button variant="outline">
+        <Link href={"/login"}>Login</Link>
+      </Button>
+
+      <Button variant="primary">
+        <Link href={"/register"}>Register</Link>
+      </Button>
     </div>
   );
 }
