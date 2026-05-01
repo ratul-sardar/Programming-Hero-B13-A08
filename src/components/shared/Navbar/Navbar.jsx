@@ -22,7 +22,7 @@ export default function Navbar() {
     <nav className="bg-white border-b border-t-mauve-700">
       <div className="relative w-11/12 max-w-360 mx-auto flex items-center justify-between py-4">
         {/* Logo area*/}
-        <h2 className="text-lg md:text-2xl font-semibold">Gorur Hatt</h2>
+        <h3 className="text-lg md:text-2xl font-semibold">Gorur Hatt</h3>
 
         {/* Deskto Navbar*/}
         <ul className="flex gap-4 items-center max-md:hidden">

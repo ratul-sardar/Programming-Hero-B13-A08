@@ -1,6 +1,6 @@
 "use client";
 
-import { FaCheck } from "react-icons/fa";
+import { FaCheck, FaEye } from "react-icons/fa";
 import {
   Button,
   Description,
@@ -15,9 +15,11 @@ import { authClient } from "../lib/auth-client";
 import { Bounce, toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
+import { IoMdEyeOff } from "react-icons/io";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async (e) => {
     setIsLoading(true);
@@ -113,7 +115,7 @@ export default function Register() {
                 isRequired
                 minLength={8}
                 name="password"
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 validate={(value) => {
                   if (value.length < 8) {
                     return "Password must be at least 8 characters";
@@ -128,7 +130,15 @@ export default function Register() {
                 }}
               >
                 <Label>Password</Label>
-                <Input placeholder="Enter your password" />
+                <span className="flex gap-2 items-center">
+                  <Input placeholder="Enter your password" />
+                  <button
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="cursor-pointer"
+                  >
+                    {showPassword ? <IoMdEyeOff /> : <FaEye />}
+                  </button>
+                </span>
                 <Description>
                   Must be at least 8 characters with 1 uppercase and 1 number
                 </Description>
