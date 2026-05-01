@@ -60,38 +60,8 @@ button {
     font-family: var(--font-inter);
 }
 
-.dark,
-[data-theme="dark"] {
-    color-scheme: dark;
-    /* Theme Colors (Dark Mode) */
-    --accent: oklch(57.32% 0.1003 72.9);
-    --accent-foreground: oklch(99.11% 0 0);
-    --background: oklch(12% 0.0015 72.9);
-    --border: oklch(28% 0.0015 72.9);
-    --danger: oklch(59.4% 0.1973 2.92);
-    --danger-foreground: oklch(99.11% 0 0);
-    --default: oklch(27.4% 0.0015 72.9);
-    --default-foreground: oklch(99.11% 0 0);
-    --field-background: oklch(21.03% 0.003 72.9);
-    --field-foreground: oklch(99.11% 0.0015 72.9);
-    --field-placeholder: oklch(70.5% 0.003 72.9);
-    --focus: oklch(57.32% 0.1003 72.9);
-    --foreground: oklch(99.11% 0.0015 72.9);
-    --muted: oklch(70.5% 0.003 72.9);
-    --overlay: oklch(21.03% 0.003 72.9);
-    --overlay-foreground: oklch(99.11% 0.0015 72.9);
-    --scrollbar: oklch(70.5% 0.0015 72.9);
-    --segment: oklch(39.64% 0.0015 72.9);
-    --segment-foreground: oklch(99.11% 0.0015 72.9);
-    --separator: oklch(25% 0.0015 72.9);
-    --success: oklch(73.29% 0.1941 129.1);
-    --success-foreground: oklch(21.03% 0.0059 129.1);
-    --surface: oklch(21.03% 0.003 72.9);
-    --surface-foreground: oklch(99.11% 0.0015 72.9);
-    --surface-secondary: oklch(25.7% 0.0023 72.9);
-    --surface-secondary-foreground: oklch(99.11% 0.0015 72.9);
-    --surface-tertiary: oklch(27.21% 0.0023 72.9);
-    --surface-tertiary-foreground: oklch(99.11% 0.0015 72.9);
-    --warning: oklch(82.03% 0.1392 54.63);
-    --warning-foreground: oklch(21.03% 0.0059 54.63);
+@layer components {
+    .cssContainer {
+        @apply w-11/12 max-w-360 mx-auto flex flex-col items-center justify-center gap-12 py-15 md:py-20 xl:py-25;
+    }
 }
