@@ -79,7 +79,7 @@ function Cta() {
         <>
           <Link href={"/user"}>
             <Image
-              src={session?.Image}
+              src={session ? "/avatar.png" : session.Image}
               alt="avatar"
               width={40}
               height={40}
