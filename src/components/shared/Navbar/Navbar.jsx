@@ -65,7 +65,7 @@ function Cta() {
     refetch, //refetch the session
   } = authClient.useSession();
 
-  console.log(session);
+  // console.log(session);
 
   // email: "ratulsardar4747@gmail.com";
   // emailVerified: true;

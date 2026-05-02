@@ -17,6 +17,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { IoMdEyeOff } from "react-icons/io";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Register() {
   const [isLoading, setIsLoading] = useState(false);
@@ -77,7 +78,7 @@ export default function Register() {
         theme: "light",
         transition: Bounce,
       });
-      router.push("/");
+      router.push("/login");
     }
     //
   };
@@ -175,6 +176,10 @@ export default function Register() {
               {isLoading ? <Spinner color="current"></Spinner> : <FaGoogle />}
               Register with Google
             </Button>
+
+            <p className="text-center mt-5">
+              Already have an account? <Link href={"/login"}>Login.</Link>
+            </p>
           </div>
 
           {/* Right Panel*/}

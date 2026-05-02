@@ -16,6 +16,7 @@ import { Bounce, toast } from "react-toastify";
 import { useState } from "react";
 import Image from "next/image";
 import { IoMdEyeOff } from "react-icons/io";
+import Link from "next/link";
 
 export default function Login() {
   // To check if the its in loading state
@@ -143,6 +144,10 @@ export default function Login() {
               {isLoading ? <Spinner color="current"></Spinner> : <FaGoogle />}
               Login with Google
             </Button>
+
+            <p className="text-center mt-5">
+              Don't have any account? <Link href={"/register"}>Register.</Link>
+            </p>
           </div>
 
           {/* Right Panel*/}
