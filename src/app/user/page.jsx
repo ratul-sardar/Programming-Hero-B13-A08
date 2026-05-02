@@ -3,10 +3,7 @@
 import { Button, Card, CloseButton, Spinner } from "@heroui/react";
 import { authClient } from "../lib/auth-client";
 import Image from "next/image";
-
-async function getUserData() {
-  return;
-}
+import Link from "next/link";
 
 export default function User() {
   const {
@@ -15,6 +12,8 @@ export default function User() {
     error, //error object
     refetch, //refetch the session
   } = authClient.useSession();
+
+  // console.log(session.user.image);
 
   // email: "ratulsardar4747@gmail.com";
   // emailVerified: true;
@@ -34,9 +33,9 @@ export default function User() {
             <div className="relative h-[140px] w-full shrink-0 overflow-hidden border-2 border-gray-600/40 rounded-2xl sm:h-[120px] sm:w-[120px]">
               <Image
                 alt="avatar"
-                className="pointer-events-none absolute inset-0 h-full w-full  object-contain select-none"
+                className="pointer-events-none absolute inset-0 h-full w-full object-contain select-none"
                 loading="lazy"
-                src={session ? "/avatar.png" : session.user?.image}
+                src={isPending ? "/avatar.png" : session?.user?.image}
                 width={120}
                 height={120}
               />
@@ -45,17 +44,12 @@ export default function User() {
               <Card.Header className="gap-1">
                 <Card.Title className="pr-8">{session?.user?.name}</Card.Title>
                 <Card.Description>{session?.user?.email}</Card.Description>
+                <p className="">{session?.user?.Image}</p>
               </Card.Header>
               <Card.Footer className="mt-auto flex w-full flex-col items-center gap-3">
-                {/* <div className="flex flex-col">
-                <span className="text-sm font-medium text-foreground">
-                  Only 10 spots
-                </span>
-                <span className="text-xs text-muted">
-                  Submission ends Oct 10.
-                </span>
-              </div>*/}
-                <Button className="w-full sm:w-auto">Update data</Button>
+                <Link href={"/user/update"}>
+                  <Button className="w-full sm:w-auto">Update data</Button>
+                </Link>
               </Card.Footer>
             </div>
           </Card>

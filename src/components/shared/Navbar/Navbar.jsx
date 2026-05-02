@@ -79,11 +79,11 @@ function Cta() {
         <>
           <Link href={"/user"}>
             <Image
-              src={session ? "/avatar.png" : session.Image}
+              src={`${isPending ? "/avatar.png" : session?.user?.image}`}
               alt="avatar"
               width={40}
               height={40}
-              className="rounded-full border border-gray-500"
+              className="rounded-full border border-gray-500 object-cover max-h-[40px] "
             ></Image>
           </Link>{" "}
           <Button
