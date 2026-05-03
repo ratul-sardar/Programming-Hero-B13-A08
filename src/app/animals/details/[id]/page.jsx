@@ -33,7 +33,6 @@ export default async function Details({ params }) {
     description,
     category,
   } = animalDetails;
-  console.log(animalDetails);
 
   return (
     <section>
