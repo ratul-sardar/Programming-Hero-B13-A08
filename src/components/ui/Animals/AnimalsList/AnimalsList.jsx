@@ -82,7 +82,7 @@ export default function AnimalsList() {
             <Card key={animal.id} className="w-full flex-col">
               <div className="relative w-full overflow-hidden rounded-2xl ">
                 <Image
-                  src={"/avatar.png"}
+                  src={animal.image}
                   alt="product picture"
                   width={220}
                   height={220}

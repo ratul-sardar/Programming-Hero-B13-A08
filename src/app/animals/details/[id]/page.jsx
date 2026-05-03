@@ -36,9 +36,9 @@ export default async function Details({ params }) {
 
   return (
     <section>
-      <div className="cssContainer grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-7 xl:gap-12">
+      <div className="relative cssContainer grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-7 xl:gap-12 items-start">
         {/* Left Panel*/}
-        <div className="col-span-full xl:col-span-5">
+        <div className="sticky top-[80px] col-span-full xl:col-span-5 shadow-md shadow-accent/90 rounded-xl overflow-clip">
           <Image
             src={image}
             alt="product image"
