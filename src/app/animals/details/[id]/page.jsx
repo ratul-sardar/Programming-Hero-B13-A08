@@ -23,6 +23,7 @@ export default async function Details({ params }) {
   const animalDetails = await getAnimalsDetails(id);
   const {
     name,
+    image,
     type,
     breed,
     price,
@@ -40,7 +41,7 @@ export default async function Details({ params }) {
         {/* Left Panel*/}
         <div className="col-span-full xl:col-span-5">
           <Image
-            src={"/avatar.png"}
+            src={image}
             alt="product image"
             width={400}
             height={400}

@@ -72,7 +72,7 @@ export default function BookingForm() {
           </TextField>
         </FieldGroup>
         <Fieldset.Actions>
-          <Button type="submit">Save changes</Button>
+          <Button type="submit">Confirm Booking</Button>
           <Button
             type="reset"
             variant="secondary"
