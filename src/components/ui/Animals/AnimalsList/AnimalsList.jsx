@@ -73,7 +73,7 @@ export default function AnimalsList() {
         </div>
 
         {/* List*/}
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           {animals.map((animal) => (
             <Card key={animal.id} className="w-full flex-col">
               <div className="relative w-full overflow-hidden rounded-2xl ">
