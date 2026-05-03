@@ -8,18 +8,23 @@ import Link from "next/link";
 import Loading from "@/app/loading";
 
 export default function AnimalsList() {
+  //Filters state
+  const [showFilter, setShowFilter] = useState(false);
+  const [filter, setFilter] = useState("Price low to high");
+  const [filterValue, setFilterValue] = useState("?_sort=price");
+
   //Fetching data
   const [animals, setAnimals] = useState(null);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function getData() {
-      const data = await getAnimals();
+      const data = await getAnimals(filterValue);
       setAnimals(data);
       setLoading(false);
     }
 
     getData();
-  }, []);
+  }, [filterValue]);
 
   if (loading) {
     return <Loading></Loading>;
@@ -28,10 +33,43 @@ export default function AnimalsList() {
   return (
     <section className="">
       <div className="cssContainer">
-        <h2 className="">Hi, from List</h2>
         {/* List Filter*/}
-        <div className="flex items-center justif-end">
-          <span>filter area</span>
+        <div className="w-full flex items-center justify-end gap-3">
+          <p className="">Sort by price:</p>
+          <div
+            onClick={() => setShowFilter(!showFilter)}
+            className="relative w-fit min-w-40  bg-white border rounded-2xl py-1.5 px-2 cursor-pointer"
+          >
+            {filter}
+
+            {/* Dropdown*/}
+            <div
+              className={`${showFilter ? "block" : "hidden"} absolute z-10 top-[110%] left-0 w-fit min-w-40  bg-white border rounded-2xl cursor-pointer`}
+            >
+              <button
+                onClick={() => {
+                  setFilter("Low to high");
+                  setFilterValue("?_sort=price");
+                }}
+                className={
+                  "w-full cursor-pointer p-2 hover:bg-accent-hover/80 hover:text-white"
+                }
+              >
+                Low to high
+              </button>
+              <button
+                onClick={() => {
+                  setFilter("High to low");
+                  setFilterValue("?_sort=-price");
+                }}
+                className={
+                  "w-full cursor-pointer p-2 hover:bg-accent-hover/80 hover:text-white"
+                }
+              >
+                High to low
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* List*/}

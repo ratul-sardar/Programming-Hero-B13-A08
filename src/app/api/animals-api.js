@@ -2,9 +2,9 @@
 //
 //
 
-export async function getAnimals() {
+export async function getAnimals(filter) {
   const res = await fetch(
-    "https://programming-hero-b13-a08-json-data-1.onrender.com/animals",
+    `https://programming-hero-b13-a08-json-data-1.onrender.com/animals${filter}`,
   );
   const data = await res.json();
 
