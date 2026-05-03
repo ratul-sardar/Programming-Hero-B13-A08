@@ -1,10 +1,10 @@
-import { getAnimals } from "../api/animals-api";
+import AnimalsList from "@/components/ui/Animals/AnimalsList/AnimalsList";
 
 export default async function Animals() {
-  console.log(await getAnimals());
   return (
     <>
       <h1 className="">Hi, from Animals</h1>
+      <AnimalsList></AnimalsList>
     </>
   );
 }
