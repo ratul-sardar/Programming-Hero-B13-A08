@@ -12,6 +12,7 @@ import {
   TextField,
 } from "@heroui/react";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 // <div className="bg-background relative z-40 w-full min-h-[50dvh] flex items-center justify-center">
 //   <Spinner size="xl" />
@@ -35,8 +36,19 @@ export default function Update() {
       name: data.name,
     });
 
+    toast.success("Update successfull", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      transition: Bounce,
+    });
+
     setIsLoading(false);
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
   };
 
   return (
