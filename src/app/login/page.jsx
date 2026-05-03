@@ -146,7 +146,10 @@ export default function Login() {
             </Button>
 
             <p className="text-center mt-5">
-              Don't have any account? <Link href={"/register"}>Register.</Link>
+              Don't have any account?{" "}
+              <span className="underline text-blue-500">
+                <Link href={"/register"}>Register.</Link>
+              </span>
             </p>
           </div>
 

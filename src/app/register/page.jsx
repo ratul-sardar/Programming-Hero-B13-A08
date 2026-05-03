@@ -178,7 +178,10 @@ export default function Register() {
             </Button>
 
             <p className="text-center mt-5">
-              Already have an account? <Link href={"/login"}>Login.</Link>
+              Already have an account?{" "}
+              <span className="underline text-blue-500">
+                <Link href={"/login"}>Login.</Link>
+              </span>
             </p>
           </div>
 

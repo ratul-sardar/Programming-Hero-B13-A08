@@ -65,8 +65,6 @@ function Cta() {
     refetch, //refetch the session
   } = authClient.useSession();
 
-  // console.log(session);
-
   // email: "ratulsardar4747@gmail.com";
   // emailVerified: true;
   // id: "69f4db48a4224c21cac7020c";
