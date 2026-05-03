@@ -73,9 +73,9 @@ export default function AnimalsList() {
                       </Chip>
                     </span>
                   </div>
-                  <Button className="w-full sm:w-auto">
-                    <Link href={`/animals/details/${animal.id}`}>Details</Link>
-                  </Button>
+                  <Link href={`/animals/details/${animal.id}`}>
+                    <Button className="w-full sm:w-auto">Details</Button>
+                  </Link>
                 </Card.Footer>
               </div>
             </Card>
