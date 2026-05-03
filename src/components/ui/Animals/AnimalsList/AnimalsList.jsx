@@ -25,20 +25,6 @@ export default function AnimalsList() {
     return <Loading></Loading>;
   }
 
-  // {
-  //     id: 'a12',
-  //     name: 'Hybrid Sheep',
-  //     type: 'Sheep',
-  //     breed: 'Cross Breed',
-  //     price: 30000,
-  //     weight: 38,
-  //     age: 2.5,
-  //     location: 'Sylhet',
-  //     description: 'হাইব্রিড ভেড়া, ভালো স্বাস্থ্য এবং উন্নত মানের মাংস।',
-  //     image: 'https://i.postimg.cc/W1t0kXzK/sheep3.jpg',
-  //     category: 'Medium Animal'
-  //   }
-
   return (
     <section className="">
       <div className="cssContainer">
