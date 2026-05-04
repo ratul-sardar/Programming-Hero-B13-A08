@@ -1,8 +1,8 @@
 "use client";
 
-import { Button, Card, Chip, CloseButton } from "@heroui/react";
+import { Button, Card, Chip } from "@heroui/react";
 import { getAnimals } from "@/app/api/animals-api";
-import { use, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Loading from "@/app/loading";
