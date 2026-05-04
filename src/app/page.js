@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@heroui/react";
 import Hero from "@/components/shared/Hero/Hero";
 import FeaturedAnimals from "@/components/ui/Home/FeaturedAnimals/FeaturedAnimals";
+import QurbanirTips from "@/components/ui/Home/QurbanirTips/QurbanirTips";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         booking.
       </Hero>
       <FeaturedAnimals></FeaturedAnimals>
+      <QurbanirTips></QurbanirTips>
     </>
   );
 }
