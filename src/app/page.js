@@ -4,6 +4,7 @@ import Hero from "@/components/shared/Hero/Hero";
 import FeaturedAnimals from "@/components/ui/Home/FeaturedAnimals/FeaturedAnimals";
 import QurbanirTips from "@/components/ui/Home/QurbanirTips/QurbanirTips";
 import TopBreed from "@/components/ui/Home/TopBreed/TopBreed";
+import FaqSection from "@/components/ui/Home/FAQSection/FaqSection";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <FeaturedAnimals></FeaturedAnimals>
       <QurbanirTips></QurbanirTips>
       <TopBreed></TopBreed>
+      <FaqSection></FaqSection>
     </>
   );
 }
