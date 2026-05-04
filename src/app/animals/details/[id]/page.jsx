@@ -18,6 +18,17 @@ import { IoMdPin } from "react-icons/io";
 //     category: 'Medium Animal'
 //   }
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const animals = await fetch(
+    "https://programming-hero-b13-a08-json-data-1.onrender.com/animals",
+  ).then((res) => res.json());
+
+  return animals.map((animal) => ({
+    id: animal.id,
+  }));
+}
+
 export default async function Details({ params }) {
   const { id } = await params;
   const animalDetails = await getAnimalsDetails(id);
