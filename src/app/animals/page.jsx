@@ -1,5 +1,6 @@
 import Hero from "@/components/shared/Hero/Hero";
 import AnimalsList from "@/components/ui/Animals/AnimalsList/AnimalsList";
+import FaqSection from "@/components/ui/Home/FAQSection/FaqSection";
 
 export default async function Animals() {
   return (
@@ -14,6 +15,7 @@ export default async function Animals() {
         looking for.
       </Hero>
       <AnimalsList></AnimalsList>
+      <FaqSection></FaqSection>
     </>
   );
 }
