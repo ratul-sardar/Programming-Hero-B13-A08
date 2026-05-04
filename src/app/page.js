@@ -3,6 +3,7 @@ import { Button } from "@heroui/react";
 import Hero from "@/components/shared/Hero/Hero";
 import FeaturedAnimals from "@/components/ui/Home/FeaturedAnimals/FeaturedAnimals";
 import QurbanirTips from "@/components/ui/Home/QurbanirTips/QurbanirTips";
+import TopBreed from "@/components/ui/Home/TopBreed/TopBreed";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       </Hero>
       <FeaturedAnimals></FeaturedAnimals>
       <QurbanirTips></QurbanirTips>
+      <TopBreed></TopBreed>
     </>
   );
 }

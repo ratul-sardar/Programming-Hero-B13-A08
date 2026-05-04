@@ -31,7 +31,7 @@ export default function AnimalsList() {
   }
 
   return (
-    <section className="">
+    <section className="bg-background-secondary">
       <div className="cssContainer">
         {/* List Filter*/}
         <div className="w-full space-y-10">
