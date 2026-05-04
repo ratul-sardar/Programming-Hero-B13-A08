@@ -1,7 +1,7 @@
 import { ToastContainer, toast } from "react-toastify";
 
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Geist, Geist_Mono, Poppins, Inter } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import Footer from "@/components/shared/Footer/Footer";
@@ -28,6 +28,8 @@ export default function RootLayout({ children }) {
       data-theme="light"
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
+      <link rel="icon" href="/favicon.svg" sizes="any" />
+
       <body
         suppressHydrationWarning
         className="relative bg-background-secondary min-h-full flex flex-col"
