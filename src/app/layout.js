@@ -28,8 +28,6 @@ export default function RootLayout({ children }) {
       data-theme="light"
       className={`${poppins.variable} ${inter.variable} h-full antialiased`}
     >
-      <link rel="icon" href="/favicon.svg" sizes="any" />
-
       <body
         suppressHydrationWarning
         className="relative bg-background-secondary min-h-full flex flex-col"
