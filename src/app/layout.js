@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
     >
       <body
         suppressHydrationWarning
-        className="relative bg-background min-h-full flex flex-col"
+        className="relative bg-background-secondary min-h-full flex flex-col"
       >
         {/* Header area*/}
         <header className="sticky top-0 z-50">

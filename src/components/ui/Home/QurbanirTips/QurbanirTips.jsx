@@ -10,7 +10,7 @@ import {
 
 export default function QurbanirTips() {
   return (
-    <section className="bg-white  ">
+    <section className="bg-background  ">
       <div className="cssContainer">
         {/* Heading*/}
         <header className="text-center space-y-4">
@@ -22,7 +22,7 @@ export default function QurbanirTips() {
         </header>
 
         {/* Contents*/}
-        <div className="max-w-[1280px] mx-auto grid md:grid-cols-2 xl:grid-cols-3 gap-5 items-items-stretch">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 xl:grid-cols-3 gap-5 items-items-stretch">
           {/* Card 1*/}
           <Card Icon={<FaHeart></FaHeart>} Title={"Check Overall Health"}>
             Make sure the animal is active, alert, and free from visible
