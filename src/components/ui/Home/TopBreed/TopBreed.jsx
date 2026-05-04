@@ -1,6 +1,7 @@
 import { Button, Card, Chip } from "@heroui/react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaMapMarked, FaMapPin } from "react-icons/fa";
 
 export default async function TopBreed() {
   const res = await fetch(
@@ -35,37 +36,44 @@ export default async function TopBreed() {
                     loading="lazy"
                     className="pointer-events-none h-full w-full object-cover select-none"
                   ></Image>
+                  <Chip
+                    color="accent"
+                    className="absolute top-2 left-2 z-1 w-fit mb-5 shadow-md shadow-accent/20"
+                  >
+                    {animal.type}
+                  </Chip>
                 </div>
                 <div className="flex flex-1 flex-col gap-3">
-                  <Card.Header className="gap-1">
-                    <Card.Title className="pr-8 mb-2.5">
-                      {animal.name}
-                    </Card.Title>
-                    <Chip color="accent" className="w-fit mb-5">
-                      {animal.type}
-                    </Chip>
-                    <Card.Description>{animal.description}</Card.Description>
-                    <div className="flex gap-2 items-center my-2">
-                      <span className="">Price:</span>
-                      <span className="">
-                        <Chip variant={"md"} color="success" className="w-fit">
-                          <Chip.Label>{animal.price}</Chip.Label>
-                        </Chip>
+                  <Card.Header className="mb-12">
+                    <Card.Title className="pr-8 mb-3">{animal.name}</Card.Title>
+
+                    <Card.Description className="mb-4">
+                      {animal.description}
+                    </Card.Description>
+                    <p className="text-xl mb-2">
+                      Price:{" "}
+                      <span className="text-2xl text-success font-semibold">
+                        ৳{animal.price}
                       </span>
+                    </p>
+                    <div className="flex gap-2">
+                      <p className="flex items-center gap-1">
+                        <span className=" text-xl">
+                          <FaMapMarked></FaMapMarked>
+                        </span>{" "}
+                        Location:{" "}
+                        <span className="text-accent text-xl font-medium">
+                          {animal.location}
+                        </span>
+                      </p>
                     </div>
                   </Card.Header>
-                  <Card.Footer className="mt-auto flex w-full flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div className="flex gap-2">
-                      <span className="">Location: </span>
-                      <span className="">
-                        <Chip variant={"md"} color="success" className="w-fit">
-                          <Chip.Label>{animal.location}</Chip.Label>
-                        </Chip>
-                      </span>
+                  <Card.Footer className="w-full mt-auto flex">
+                    <div className="w-full">
+                      <Link href={`/animals/details/${animal.id}`}>
+                        <Button className="w-full ">Details</Button>
+                      </Link>
                     </div>
-                    <Link href={`/animals/details/${animal.id}`}>
-                      <Button className="w-full sm:w-auto">Details</Button>
-                    </Link>
                   </Card.Footer>
                 </div>
               </Card>
